@@ -1,0 +1,24 @@
+{
+  "name": "readme-generator",
+  "version": "1.0.0",
+  "description": "Command line application that dynamically generate a README file",
+  "main": "script.js",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "inquirer": "^7.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atmurray-fullstack/README-Generator.git"
+  },
+  "author": "Andrew Murray",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/atmurray-fullstack/README-Generator/issues"
+  },
+  "homepage": "https://github.com/atmurray-fullstack/README-Generator#readme"
+}
