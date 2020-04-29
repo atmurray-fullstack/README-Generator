@@ -39,7 +39,7 @@ function promptUser1() {
 
 function generateReadMe(arr) {
     return `
-    badge
+![Maintenance](https://img.shields.io/maintenance/no/2020?style=for-the-badge)
 
 # Project Title: ${arr[1].name}
 
@@ -68,8 +68,6 @@ ${arr[3]}
 
 ## License
 ${arr[1].license}
-
-
     `
 }
 
@@ -115,7 +113,7 @@ promptUser1()
         const readMe = generateReadMe(arr);
 
 
-        return writeFileAsync("test2.md", readMe);
+        return writeFileAsync("README.md", readMe);
     })
 
 
