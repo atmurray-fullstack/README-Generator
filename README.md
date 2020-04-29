@@ -5,7 +5,7 @@
 
 ## Description
 
-Command line application that dynamically generate a README file
+Command line application that dynamically generate a README.md file using javascript, Axios, and Inquirer
 
 
 
@@ -21,13 +21,15 @@ Command line application that dynamically generate a README file
 How do you install the project
 
 ## Usage
-Just clone the repo and run index.js in node.js. Answer all of the questions and the command line app should fill out the README.md file
+Clone the repository to your local machine and run the index.js file in Node or another javascript runtime env. Then answer the questions presented. The repository for the readme must belong to the user entered.
 
 ## Credits
-axios
- inquirer
- npm
+ Axios
+ Inquirer
+ Node Package Manager
+ Github Badges
 
 ## License
-null
+[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
+The Unlicense
     

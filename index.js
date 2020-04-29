@@ -91,10 +91,11 @@ promptUser1()
         const resp2 = await axios.get(repoUrl);
         let { license, description, name } = await resp2.data;
         const gitRepo = {
-            "license": JSON.stringify(license),
+            "license": license.name,
             "description": description,
             "name": name
         };
+        console.log(gitRepo.license)
 
         respArr.push(user, gitRepo, ans.usage, ans.contribute);
         // respArr.push(gitRepo);
