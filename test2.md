@@ -1,13 +1,13 @@
 
     badge
 
-# Project Title: Cryptocurrency-Exchange-and-News-Tracker
+# Project Title: DayPlanner-ATM
 
 ## Description
 
-This app returns the value of cryptocurrency in local and foreign currencies plus cryptocurrency news.
+Dayplanner powered by Bootstrap, JavaScript, and an API.
 
-Description goes here
+
 
 ## Table of Contents
 
@@ -15,6 +15,7 @@ Description goes here
 *[Usage]
 *[Credits]
 *[License]
+*[Contributors]
 
 ## Installation
 How do you install the project
@@ -28,4 +29,10 @@ List third-party assets
 
 ## License
 List license with badge
+
+## Contributors
+
+hey
+ hey
+ hey
     

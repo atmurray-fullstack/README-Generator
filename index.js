@@ -37,8 +37,8 @@ function promptUser1() {
     ])
 }
 
-function generateReadMe(arr){
-    return`
+function generateReadMe(arr) {
+    return `
     badge
 
 # Project Title: ${arr[1].name}
@@ -55,19 +55,21 @@ ${arr[1].description}
 *[Usage]
 *[Credits]
 *[License]
+*[Contributors]
 
 ## Installation
 How do you install the project
 
 ## Usage
-Provide instructions/examples for use. Include screenshots as needed
+${arr[2]}
 
 ## Credits
-List collaborators, with links to github
-List third-party assets
+${arr[3]}
 
 ## License
-List license with badge
+${arr[1].license}
+
+
     `
 }
 
@@ -103,8 +105,15 @@ promptUser1()
     }).then(function (arr) {
         // console.log(arr);
         const contributors = arr[3].split(",");
-        console.log(contributors);
+        contributors.forEach(el => {
+            el.trim()
+        });
+        const constString = contributors.join("\n");
+        arr[3] = constString;
+        console.log(constString);
+
         const readMe = generateReadMe(arr);
+
 
         return writeFileAsync("test2.md", readMe);
     })
