@@ -67,6 +67,7 @@ ${arr[2]}
 ${arr[3]}
 
 ## License
+[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
 ${arr[1].license}
     `
 }
@@ -90,7 +91,7 @@ promptUser1()
         const resp2 = await axios.get(repoUrl);
         let { license, description, name } = await resp2.data;
         const gitRepo = {
-            "license": license,
+            "license": JSON.stringify(license),
             "description": description,
             "name": name
         };
@@ -105,6 +106,7 @@ promptUser1()
         const contributors = arr[3].split(",");
         contributors.forEach(el => {
             el.trim()
+            el = "-" + el
         });
         const constString = contributors.join("\n");
         arr[3] = constString;
