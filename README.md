@@ -16,30 +16,33 @@ Command line application that dynamically generate a README.md file using javasc
 
 ## Table of Contents
 
-*[Installation]
-*[Usage]
-*[Credits]
-*[License]
-*[Contributors]
+*[Installation]  
+*[Usage]  
+*[Credits]  
+*[License]  
+*[Contributors]  
 
 ## Installation
-clone and go
+Clone the repository to local machine and run in JavaScript runtime environment.
 
 ## Usage
-github username and repository must belong to same github user
+Username and repository name must belong to same Github User. Answer all questions.
 
 ## Credits
-axios
- inquirer
+Axios
+  Inquirer
+  Github API
+ Github badges
+ Node Project Manager
 
 ## License
 [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)<br>unlicense
 
 ## Contributor Guidelines
-Just the community guidelines
+Initiate a pull request and please follow all standard community guidelines.
 
 ## User Info
-![gitUser Picture](https://avatars3.githubusercontent.com/u/57961866?v=4|width= 175)  
+![gitUser Picture](https://avatars3.githubusercontent.com/u/57961866?v=4)  
 -Andrew Murray  
--atmurray@partyalldaylong.com  
+-atmurray.fullstack@gmail.com  
 -[Check out user page.](undefined)
