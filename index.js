@@ -49,7 +49,7 @@ function promptUser1() {
             type: "list",
             message: (questions[5]),
             name: "license",
-            choices: ["MIT", "lgpl-3.0", "mpl-2.0", "agpl-3.0", "unlicense", "apache-2.0", "gpl-3.0"]
+            choices: ["MIT", "lgpl-3.0", "agpl-3.0", "unlicense", "apache-2.0", "gpl-3.0"]
         },
         {
             message: questions[6],
@@ -63,7 +63,11 @@ function generateReadMe(arr) {
     return `
 ![Maintenance](https://img.shields.io/maintenance/no/2020?style=for-the-badge)
 
-# Project Title: ${arr[1].name}
+# Project Title: 
+${arr[1].name}
+
+## By:
+${arr[0].name}
 
 ## Description
 
@@ -93,6 +97,13 @@ ${arr[5]}
 
 ## Contributor Guidelines
 ${arr[6]}
+
+## User Info
+![gitUser Picture](${arr[0].picUrl}|width= 175)
+-${arr[0].name}
+-${arr[0].email}
+
+
 
     `
 }
@@ -126,8 +137,29 @@ promptUser1()
 
         return respArr
 
-    }).then(function (arr) {
-        // console.log(arr);
+    }).then(async function (arr) {
+
+        if (arr[0].email === null) {
+            const email = await inquirer
+                .prompt([
+                    {
+                        message: "Email value returned null by Github API please enter user email.",
+                        name: "email",
+                        type: "input"
+                    }
+                ]).then(function (ans) {
+                    console.log(ans.email)
+                    return ans.email
+                    // arr[0].email = email;
+                });
+            console.log(email)
+            arr[0].email = await email;
+        }
+
+        console.log(arr);
+
+
+
         const credits = arr[4].split(",");
         credits.forEach(el => {
             el.trim()
@@ -135,12 +167,20 @@ promptUser1()
         });
         const constString = credits.join("\n");
         arr[4] = constString;
-         if (arr[5].trim()==="MIT"){
-                arr[5] = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)" + "<br>" + arr[5]
-                console.log(arr[5]);
+        if (arr[5].trim() === "MIT") {
+            arr[5] = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)" + "<br>" + arr[5]
+        } else if (arr[5].trim() === "lgpl-3.0") {
+            arr[5] = "[![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)" + "<br>" + arr[5]
+        } else if (arr[5].trim() === "agpl-3.0") {
+            arr[5] = "[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)" + "<br>" + arr[5]
+        } else if (arr[5].trim() === "unlicense") {
+            arr[5] = "[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)" + "<br>" + arr[5]
+        } else if (arr[5].trim() === "apache-2.0") {
+            arr[5] = "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)" + "<br>" + arr[5]
+        } else if (arr[5].trim() === "gpl-3.0") {
+            arr[5] = "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)" + "<br>" + arr[5];
         }
-        //MIT", "lgpl-3.0", "mpl-2.0", "agpl-3.0", 
-        //"unlicense", "apache-2.0", "gpl-3.0
+
 
 
         const readMe = generateReadMe(arr);
