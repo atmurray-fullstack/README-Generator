@@ -70,6 +70,7 @@ ${arr[1].name}
 ${arr[0].login}
 
 ## Description
+[Link to project repo.](${arr[1].repoPage})
 
 ${arr[1].description}
 
@@ -99,13 +100,11 @@ ${arr[5]}
 ${arr[6]}
 
 ## User Info
-![gitUser Picture](${arr[0].picUrl}|width= 175)
--${arr[0].name}
--${arr[0].email}
-
-
-
-    `
+![gitUser Picture](${arr[0].picUrl}|width= 175)  
+-${arr[0].name}  
+-${arr[0].email}  
+-[Check out user page.](${arr[0].userPage})
+`
 }
 
 
@@ -117,20 +116,22 @@ promptUser1()
         respArr = [];
 
         const resp = await axios.get(queryUrl);
-        let { name: userName, email: email, avatar_url: picUrl,login:login } = await resp.data;
+        let { name: userName, email: email, avatar_url: picUrl,login:login, html_url:userPage } = await resp.data;
         const user = {
             "name": userName,
             "email": email,
             "picUrl": picUrl,
-            "login":login
+            "login":login,
+            "html_url":userPage
         };
 
         const resp2 = await axios.get(repoUrl);
-        let { license, description, name } = await resp2.data;
+        let { license, description, name, html_url } = await resp2.data;
         const gitRepo = {
             "license": license.name,
             "description": description,
-            "name": name
+            "name": name,
+            "repoPage":html_url
         };
 
         respArr.push(user, gitRepo, ans.install, ans.usage, ans.credits, ans.license, ans.contribute);
@@ -164,7 +165,7 @@ promptUser1()
         const credits = arr[4].split(",");
         credits.forEach(el => {
             el.trim()
-            el = "-" + el
+            el = "-" + el+"  "
         });
         const constString = credits.join("\n");
         arr[4] = constString;

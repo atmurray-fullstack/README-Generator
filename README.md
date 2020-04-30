@@ -8,6 +8,7 @@ README-Generator
 atmurray-fullstack
 
 ## Description
+[Link to project repo.](https://github.com/atmurray-fullstack/README-Generator)
 
 Command line application that dynamically generate a README.md file using javascript, Axios, and Inquirer
 
@@ -22,26 +23,23 @@ Command line application that dynamically generate a README.md file using javasc
 *[Contributors]
 
 ## Installation
-slowly
+clone and go
 
 ## Usage
-fire it up and go
+github username and repository must belong to same github user
 
 ## Credits
 axios
  inquirer
 
 ## License
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)<br>MIT
+[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)<br>unlicense
 
 ## Contributor Guidelines
-community guidelines
+Just the community guidelines
 
 ## User Info
-![gitUser Picture](https://avatars3.githubusercontent.com/u/57961866?v=4)
--Andrew Murray
--atmurray@partyparty.com
-
-
-
-    
+![gitUser Picture](https://avatars3.githubusercontent.com/u/57961866?v=4|width= 175)  
+-Andrew Murray  
+-atmurray@partyalldaylong.com  
+-[Check out user page.](undefined)
