@@ -6,12 +6,18 @@ const axios = require("axios")
 const readFileAsync = util.promisify(fs.readFile);
 const writeFileAsync = util.promisify(fs.writeFile);
 const questions = [
-    "What is your Github username?",
-    "What is the repository name?",
-    "Describe how to use your app.",
-    "List any contributors/third party assests. Seperate items with a comma."
+    "What is your Github username?",///0
+    "What is the repository name?",//1
+    "How should the user install your app?",//2
+    "Describe how to use your app. Are there any special instructions?",//3
+    "List any contributors/third party assests (libraries/apis). Seperate items with a comma.",
+    "What type of license does your repo have?",
+    "Are there any guidlines for contributors to follow?"
 
 ];
+
+
+
 function promptUser1() {
     return inquirer.prompt([
         {
@@ -26,11 +32,27 @@ function promptUser1() {
         },
         {
             message: questions[2],
-            name: "usage",
+            name: "install",
             type: "input"
         },
         {
             message: questions[3],
+            name: "usage",
+            type: "input"
+        },
+        {
+            message: questions[4],
+            name: "credits",
+            type: "input"
+        },
+        {
+            type: "list",
+            message: (questions[5]),
+            name: "license",
+            choices: ["MIT", "lgpl-3.0", "mpl-2.0", "agpl-3.0", "unlicense", "apache-2.0", "gpl-3.0"]
+        },
+        {
+            message: questions[6],
             name: "contribute",
             type: "input"
         }
@@ -58,17 +80,20 @@ ${arr[1].description}
 *[Contributors]
 
 ## Installation
-How do you install the project
-
-## Usage
 ${arr[2]}
 
-## Credits
+## Usage
 ${arr[3]}
 
+## Credits
+${arr[4]}
+
 ## License
-[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
-${arr[1].license}
+${arr[5]}
+
+## Contributor Guidelines
+${arr[6]}
+
     `
 }
 
@@ -95,23 +120,28 @@ promptUser1()
             "description": description,
             "name": name
         };
-        console.log(gitRepo.license)
 
-        respArr.push(user, gitRepo, ans.usage, ans.contribute);
-        // respArr.push(gitRepo);
+        respArr.push(user, gitRepo, ans.install, ans.usage, ans.credits, ans.license, ans.contribute);
+
 
         return respArr
 
     }).then(function (arr) {
         // console.log(arr);
-        const contributors = arr[3].split(",");
-        contributors.forEach(el => {
+        const credits = arr[4].split(",");
+        credits.forEach(el => {
             el.trim()
             el = "-" + el
         });
-        const constString = contributors.join("\n");
-        arr[3] = constString;
-        console.log(constString);
+        const constString = credits.join("\n");
+        arr[4] = constString;
+         if (arr[5].trim()==="MIT"){
+                arr[5] = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)" + "<br>" + arr[5]
+                console.log(arr[5]);
+        }
+        //MIT", "lgpl-3.0", "mpl-2.0", "agpl-3.0", 
+        //"unlicense", "apache-2.0", "gpl-3.0
+
 
         const readMe = generateReadMe(arr);
 
