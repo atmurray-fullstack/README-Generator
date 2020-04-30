@@ -67,7 +67,7 @@ function generateReadMe(arr) {
 ${arr[1].name}
 
 ## By:
-${arr[0].name}
+${arr[0].login}
 
 ## Description
 
@@ -117,11 +117,12 @@ promptUser1()
         respArr = [];
 
         const resp = await axios.get(queryUrl);
-        let { name: userName, email: email, avatar_url: picUrl } = await resp.data;
+        let { name: userName, email: email, avatar_url: picUrl,login:login } = await resp.data;
         const user = {
             "name": userName,
-            'email': email,
-            'picUrl': picUrl
+            "email": email,
+            "picUrl": picUrl,
+            "login":login
         };
 
         const resp2 = await axios.get(repoUrl);

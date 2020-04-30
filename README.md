@@ -5,7 +5,7 @@
 README-Generator
 
 ## By:
-Andrew Murray
+atmurray-fullstack
 
 ## Description
 
@@ -22,25 +22,25 @@ Command line application that dynamically generate a README.md file using javasc
 *[Contributors]
 
 ## Installation
-slow
+slowly
 
 ## Usage
-fire and go
+fire it up and go
 
 ## Credits
 axios
  inquirer
 
 ## License
-[![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)<br>lgpl-3.0
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)<br>MIT
 
 ## Contributor Guidelines
-community
+community guidelines
 
 ## User Info
-![gitUser Picture](https://avatars3.githubusercontent.com/u/57961866?v=4|width= 175)
+![gitUser Picture](https://avatars3.githubusercontent.com/u/57961866?v=4)
 -Andrew Murray
--atmurray@partycentral.net
+-atmurray@partyparty.com
 
 
 
