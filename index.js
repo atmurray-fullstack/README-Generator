@@ -114,8 +114,11 @@ promptUser1()
         const queryUrl = `https://api.github.com/users/${ans.username}`;
         const repoUrl = `https://api.github.com/repos/${ans.username}/${ans.repoName}`
         respArr = [];
-
-        const resp = await axios.get(queryUrl);
+        
+        const resp = await axios.get(queryUrl)
+        .catch((err)=>{
+            console.log(err)
+        });
         let { name: userName, email: email, avatar_url: picUrl, login: login, html_url: userPage } = await resp.data;
         const user = {
             "name": userName,
@@ -125,7 +128,10 @@ promptUser1()
             "html_url": userPage
         };
 
-        const resp2 = await axios.get(repoUrl);
+        const resp2 = await axios.get(repoUrl)
+        .catch((err)=>{
+            console.log(err)
+        });
         let { license, description, name, html_url } = await resp2.data;
         const gitRepo = {
             "license": license.name,
@@ -165,7 +171,7 @@ promptUser1()
         const credits = arr[4].split(",");
         credits.forEach(el => {
             el.trim()
-            el = "-" + el + "  "
+            el = "-" + el + " "+" "
         });
         const constString = credits.join("\n");
         arr[4] = constString;
