@@ -101,7 +101,7 @@ ${arr[6]}
 ![gitUser Picture](${arr[0].picUrl})  
 -${arr[0].name}  
 -${arr[0].email}  
--[Go to user page.](${arr[0].userPage})
+-[Check out user page.](${arr[0].userPage})
 `
 }
 
@@ -110,10 +110,10 @@ ${arr[6]}
 promptUser1()
     .then(async function (ans) {
         const queryUrl = `https://api.github.com/users/${ans.username}`;
-        const repoUrl = `https://api.github.com/repos/${ans.username}/${ans.repoName}`;
+        const repoUrl = `https://api.github.com/repos/${ans.username}/${ans.repoName}`
         respArr = [];
 
-        const resp = await axios.get(queryUrl);
+        const resp = await axios.get(queryUrl)
             .catch((err) => {
                 console.log(err.response.status)
                 console.log(err.response.statusText)
@@ -127,10 +127,10 @@ promptUser1()
             "html_url": userPage
         };
 
-        const resp2 = await axios.get(repoUrl);
+        const resp2 = await axios.get(repoUrl)
             .catch((err) => {
-                console.log(err.response.status);
-                console.log(err.response.statusText);
+                console.log(err.response.status)
+                console.log(err.response.statusText)
 
             });
         let { license, description, name, html_url } = await resp2.data;
@@ -144,12 +144,12 @@ promptUser1()
         respArr.push(user, gitRepo, ans.install, ans.usage, ans.credits, ans.license, ans.contribute);
 
 
-        return respArr;
+        return respArr
 
     }).then(async function (arr) {
 
         if (arr[0].email === null) {
-            const email = await inquirer;
+            const email = await inquirer
                 .prompt([
                     {
                         message: "Email value returned null by Github API please enter user email.",
@@ -157,7 +157,7 @@ promptUser1()
                         type: "input"
                     }
                 ]).then(function (ans) {
-                    return ans.email;
+                    return ans.email
                 });
             arr[0].email = await email;
         }
