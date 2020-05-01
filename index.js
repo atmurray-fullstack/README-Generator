@@ -98,7 +98,7 @@ ${arr[5]}
 ${arr[6]}
 
 ## User Info
-![gitUser Picture](${arr[0].picUrl})  
+![gitUser Picture](${arr[0].picUrl}+&s=35)  
 -${arr[0].name}  
 -${arr[0].email}  
 -[Check out user page.](${arr[0].userPage})
@@ -115,22 +115,22 @@ promptUser1()
 
         const resp = await axios.get(queryUrl)
             .catch((err) => {
-                console.log(err.response.status)
-                console.log(err.response.statusText)
+                console.log(err.response.status);
+                console.log(err.response.statusText);
             });
-        let { name: userName, email: email, avatar_url: picUrl, login: login, html_url: userPage } = await resp.data;
+        let { name: userName, email: email, avatar_url: picUrl, login: login, } = await resp.data;
         const user = {
             "name": userName,
             "email": email,
             "picUrl": picUrl,
             "login": login,
-            "html_url": userPage
+            "userPage": "https://github.com/"+ans.username
         };
 
         const resp2 = await axios.get(repoUrl)
             .catch((err) => {
-                console.log(err.response.status)
-                console.log(err.response.statusText)
+                console.log(err.response.status);
+                console.log(err.response.statusText);
 
             });
         let { license, description, name, html_url } = await resp2.data;
