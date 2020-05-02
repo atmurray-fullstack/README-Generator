@@ -23,22 +23,22 @@ Command line application that dynamically generate a README.md file using javasc
 *[Contributors]  
 
 ## Installation
-Clone the repository and install all of the dependencies with NPM.
+slowly
 
 ## Usage
-Open the README-Generator folder in a JavaScript runtime environment. Run index.js in the console. Answer all of the questions to get a full README.md file. The username and Github repository name must both belong to the same Github user or an error will be thrown.
+Answer all the questions
 
 ## Credits
-Node Project Manager
-Axios
-Inquirer
-Github API
+NPM
+ Axios
+ Inquirer
+ Githiub API
 
 ## License
-[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)<br>unlicense
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)<br>MIT
 
 ## Contributor Guidelines
-Initiate a pull request and follow all of the Github community guidelines please.
+Community Guidelines
 
 ## User Info
 ![gitUser Picture](https://avatars3.githubusercontent.com/u/57961866?v=4+&s=35)  
